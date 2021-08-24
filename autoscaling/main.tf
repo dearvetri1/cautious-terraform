@@ -43,7 +43,7 @@ resource "aws_launch_configuration" "this" {
 }
 
 resource "aws_autoscaling_group" "this-autoscaling" {
-  max_size = 2
+  max_size = 3
   min_size = 1
   name = "this-autoscaling"
   vpc_zone_identifier = ["${module.main-public-1.subnet_id}"]
