@@ -50,6 +50,8 @@ resource "aws_alb_target_group" "this-targetgroup" {
   vpc_id = "${module.common-vpc.this_vpc_id}"
 }
 
+
+
 #Add a listener. These are listening for any incoming connections to the load balancer in a given port and protocol and then redirector forward that request to a target group.
 resource "aws_alb_listener" "this-alblistener" {
   load_balancer_arn = "${aws_alb.this.arn}"
