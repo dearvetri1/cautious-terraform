@@ -7,7 +7,8 @@ resource "aws_eip" "nat" {
 resource "aws_nat_gateway" "main-private" {
   allocation_id = "${aws_eip.nat.id}"
   subnet_id = "${module.main-public-1.subnet_id}"
-  depends_on = [aws_internet_gateway.main-gw]
+  depends_on = [
+    aws_internet_gateway.main-gw]
 }
 
 resource "aws_route_table" "main-private" {
@@ -23,10 +24,10 @@ resource "aws_route_table" "main-private" {
 
 resource "aws_route_table_association" "main-private-1-a" {
   route_table_id = "${aws_route_table.main-private.id}"
-  subnet_id      = "${module.main-private-1.subnet_id}"
+  subnet_id = "${module.main-private-1.subnet_id}"
 }
 
 resource "aws_route_table_association" "main-private-1-b" {
   route_table_id = "${aws_route_table.main-private.id}"
-  subnet_id      = "${module.main-private-2.subnet_id}"
+  subnet_id = "${module.main-private-2.subnet_id}"
 }

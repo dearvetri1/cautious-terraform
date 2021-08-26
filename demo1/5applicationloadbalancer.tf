@@ -6,14 +6,16 @@ resource "aws_security_group" "alb-security-group" {
     from_port = 443
     protocol = "tcp"
     to_port = 443
-    cidr_blocks = ["${module.common-vpc.this_vpc_cidr_block}"]
+    cidr_blocks = [
+      "${module.common-vpc.this_vpc_cidr_block}"]
   }
 
   ingress {
     from_port = 80
     protocol = "tcp"
     to_port = 80
-    cidr_blocks = ["${module.common-vpc.this_vpc_cidr_block}"]
+    cidr_blocks = [
+      "${module.common-vpc.this_vpc_cidr_block}"]
   }
 
   egress {
@@ -33,8 +35,11 @@ resource "aws_alb" "this" {
   internal = true
   load_balancer_type = "application"
   ip_address_type = "ipv4"
-  subnets = ["${module.main-public-1.subnet_id}", "${module.main-public-2.subnet_id}"]
-  security_groups = ["${aws_security_group.alb-security-group.id}"]
+  subnets = [
+    "${module.main-public-1.subnet_id}",
+    "${module.main-public-2.subnet_id}"]
+  security_groups = [
+    "${aws_security_group.alb-security-group.id}"]
 }
 
 #Create a target group

@@ -21,10 +21,10 @@ resource "aws_route_table" "main-public" {
 
 resource "aws_route_table_association" "main-public-1-a" {
   route_table_id = "${aws_route_table.main-public.id}"
-  subnet_id      = "${module.main-public-1.subnet_id}"
+  subnet_id = "${module.main-public-1.subnet_id}"
 }
 
 resource "aws_route_table_association" "main-public-1-b" {
   route_table_id = "${aws_route_table.main-public.id}"
-  subnet_id      = "${module.main-public-2.subnet_id}"
+  subnet_id = "${module.main-public-2.subnet_id}"
 }

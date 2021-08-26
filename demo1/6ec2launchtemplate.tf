@@ -7,7 +7,8 @@ resource "aws_security_group" "instance1-sg" {
     from_port = 22
     protocol = "tcp"
     to_port = 22
-    cidr_blocks = ["0.0.0.0/0"]
+    cidr_blocks = [
+      "0.0.0.0/0"]
   }
 }
 
@@ -18,7 +19,8 @@ resource "aws_launch_template" "simple-ec2" {
   instance_type = "t2.micro"
   network_interfaces {
     subnet_id = "${module.main-public-1.subnet_id}"
-    security_groups = ["${aws_security_group.instance1-sg.id}"]
+    security_groups = [
+      "${aws_security_group.instance1-sg.id}"]
   }
   key_name = "${aws_key_pair.ec2instance1-key.key_name}"
 }
