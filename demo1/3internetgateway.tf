@@ -6,7 +6,7 @@ resource "aws_internet_gateway" "main-gw" {
   }
 }
 
-#Setup route table for access to and from internet via publiic subnet 1 and 2
+#Setup route table for access to and from internet via public subnet 1 and 2
 resource "aws_route_table" "main-public" {
   vpc_id = "${module.common-vpc.this_vpc_id}"
   route {
@@ -15,7 +15,7 @@ resource "aws_route_table" "main-public" {
   }
 
   tags = {
-    Name = "main-public"
+    Name = "VPG IGW Route Table"
   }
 }
 

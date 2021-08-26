@@ -10,6 +10,10 @@ resource "aws_security_group" "instance1-sg" {
     cidr_blocks = [
       "0.0.0.0/0"]
   }
+
+  tags = {
+    Name = "Vpground instace 1 sg"
+  }
 }
 
 
