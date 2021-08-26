@@ -4,12 +4,12 @@ variable "AWS_REGION" {
   default = "us-east-1"
 }
 
-variable "PATH_TO_PRIVATE_KEY" {
-  default = "mykey"
+variable "ec2instance1-private-key" {
+  default = "ec2instance1"
 }
 
-variable "PATH_TO_PUBLIC_KEY" {
-  default = "mykey.pub"
+variable "ec2instance1-public-key" {
+  default = "ec2instance1.pub"
 }
 
 variable "vpc_cidr_block" {
