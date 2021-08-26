@@ -6,12 +6,14 @@ resource "aws_security_group" "alb-security-group" {
     from_port = 443
     protocol = "tcp"
     to_port = 443
+    cidr_blocks = ["${module.common-vpc.this_vpc_cidr_block}"]
   }
 
   ingress {
     from_port = 80
     protocol = "tcp"
     to_port = 80
+    cidr_blocks = ["${module.common-vpc.this_vpc_cidr_block}"]
   }
 
   egress {
