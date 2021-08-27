@@ -12,7 +12,6 @@ data "aws_ami" "test" {
     name = "virtualization-type"
     values = ["hvm"]
   }
-
 }
 
 output "amiid" {
