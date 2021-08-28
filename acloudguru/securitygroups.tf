@@ -78,6 +78,14 @@ resource "aws_security_group" "jenkins-worker-sg" {
   vpc_id = "${aws_vpc.vpc-master-oregon.id}"
 
   ingress {
+    from_port = 22
+    protocol = "tcp"
+    to_port = 22
+    cidr_blocks = [
+      "0.0.0.0/0"]
+  }
+
+  ingress {
     from_port = 0
     protocol = -1
     to_port = 0

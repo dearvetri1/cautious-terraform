@@ -1,5 +1,5 @@
 **/.idea/**
 terraform.tfvars
 **/.terraform/**
-mykey
-mykey.pub
+*key
+*key.pub
